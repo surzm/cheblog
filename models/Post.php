@@ -26,6 +26,7 @@ class Post
     private $user_name;
     private $user_nice_name;
     private $user_avatar;
+    private $img;
 
 
     /**
@@ -40,15 +41,11 @@ class Post
         $this->date = $params->date;
         $this->modified = $params->modified;
         $this->excerpt = $params->excerpt;
-
-        foreach ($params->attachments as $key => $value) {
-            $this->attachments[] = $key;
-            ImageService::saveImage($this->id,$value);
-        }
+        ImageService::saveImage($this->id, $params->featured_image);
 
         $this->user_id = $params->author->ID;
-        $this->user_name = $params->author->login;
-        $this->user_nice_name = $params->author->nice_name;
+        $this->user_name = $params->author->name;
+        $this->user_login = $params->author->login;
         $this->user_avatar = $params->author->avatar_URL;
     }
 
@@ -99,6 +96,7 @@ class Post
     {
         return $this->excerpt;
     }
+
     /**
      * @return mixed
      */
@@ -130,6 +128,7 @@ class Post
     {
         return $this->attachments;
     }
+
     /**
      * @return mixed
      */

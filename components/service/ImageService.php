@@ -14,7 +14,7 @@ use Yii;
 
 class ImageService
 {
-    public static function saveImage($post_id, \stdClass $attachment)
+    public static function saveImage($post_id, $attachment)
     {
         $base_image_path = Yii::$app->basePath . '/web/image';
         if (!is_dir($base_image_path)) {
@@ -23,17 +23,16 @@ class ImageService
         }
 
         $source = $base_image_path . '/post' . $post_id;
-        $file = $source . '/' . $attachment->ID . '.png';
-
+        $file = $source . '/main.png';
         if (!is_file($file)) {
             if (!is_dir($source)) {
                 mkdir($source, 0777);
                 chmod($source, 0777);
             }
-            if (!file_put_contents($file, file_get_contents($attachment->URL))) {
+            if (!file_put_contents($file, file_get_contents($attachment))) {
                 throw new \Exception('файл не сохранен');
             }
-            $small = $source . '/' . $attachment->ID . 'small.png';
+            $small = $source . '/main.small.png';
 
             $generator = new ImageGenerator($file);
             $dim = ['373','197'];

@@ -7,7 +7,7 @@
           foreach ($posts as $post){?>
         <article class="blog-post">
           <a href="post/<?=$post->getId()?>" class="blog-post__img-wrap">
-            <img src="/image/post<?=$post->getId().'/'.$post->getAttachments()[0].'small.png'?>" alt="<?=$post->getTitle()?>" title="<?=$post->getTitle()?>">
+            <img src="/image/post<?=$post->getId().'/main.small.png'?>" alt="<?=$post->getTitle()?>" title="<?=$post->getTitle()?>">
           </a>
           <div class="blog-post__about">
             <h3 class="blog-post__title">

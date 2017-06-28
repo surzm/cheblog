@@ -22,7 +22,7 @@ class AppAsset extends AssetBundle
     ];
     public $js = [
         'nassets/js/main.js',
-        'nassets/js/plugin.min.js',
+        'nassets/js/plugins.min.js',
     ];
     public $depends = [
         'yii\web\YiiAsset',

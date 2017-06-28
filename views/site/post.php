@@ -20,7 +20,7 @@
 
       <article class="blog-article">
       <div class="blog-article__img-wrap">
-          <img  src="/image/post<?=$post->getId().'/'.$post->getAttachments()[0].'.png'?>" alt="<?= /** @var \app\models\Post $post */
+          <img  src="/image/post<?=$post->getId().'/main.png'?>" alt="<?= /** @var \app\models\Post $post */
         $post->getTitle()?>" class="blog-article__img">
       </div>
       <div class="blog-article__author">
@@ -32,13 +32,8 @@
         </p>
       </div>
       <h1 class="blog-article__title"><?=$post->getTitle()?></h1>
-         <!-- <div>
-              <?/*=$post->getContent()*/?>
-          </div>-->
+         <?= $post->getContent()?>
 <!--      <p class="blog-article__main-text">С удовольствием представляем вам наш новый музейный аудиогид. На этот раз предмет исследования Чевостика — легендарная Государственная Третьяковская галерея.</p>-->
-      <p class="blog-article__text">
-      <?=$post->getExcerpt()?>
-      </p>
       <!--<div class="blog-article__additional">
         <div class="blog-article__additional__img">
           <img src="./img_static/blog/blog-article-preview.jpg" alt="Подпись к иллюстации">
