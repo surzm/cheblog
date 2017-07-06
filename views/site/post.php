@@ -19,10 +19,12 @@
       </ul>
 
       <article class="blog-article">
+          <?php if($post->getImg()){?>
       <div class="blog-article__img-wrap">
           <img  src="/image/post<?=$post->getId().'/main.png'?>" alt="<?= /** @var \app\models\Post $post */
         $post->getTitle()?>" class="blog-article__img">
       </div>
+          <?php } ?>
       <div class="blog-article__author">
         <small class="blog-article__author-label">Автор</small>
         <img class="blog-article__author-img" src="<?=$post->getUserAvatar()?>" width="40" height="40" alt="Юрий Норштейн">

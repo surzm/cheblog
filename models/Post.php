@@ -41,7 +41,10 @@ class Post
         $this->date = $params->date;
         $this->modified = $params->modified;
         $this->excerpt = $params->excerpt;
-        ImageService::saveImage($this->id, $params->featured_image);
+        if ($params->featured_image){
+            ImageService::saveImage($this->id, $params->featured_image);
+            $this->img = $params->featured_image;
+        }
 
         $this->user_id = $params->author->ID;
         $this->user_name = $params->author->name;
@@ -135,5 +138,13 @@ class Post
     public function getUserAvatar()
     {
         return $this->user_avatar;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getImg()
+    {
+        return $this->img;
     }
 }
