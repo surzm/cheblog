@@ -41,7 +41,9 @@ class Post
         $this->date = $params->date;
         $this->modified = $params->modified;
         $this->excerpt = $params->excerpt;
-        ImageService::saveImage($this->id, $params->featured_image);
+        if ($params->featured_image) {
+            ImageService::saveImage($this->id, $params->featured_image);
+        }
 
         $this->user_id = $params->author->ID;
         $this->user_name = $params->author->name;
