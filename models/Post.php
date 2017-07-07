@@ -139,4 +139,12 @@ class Post
     {
         return $this->user_avatar;
     }
+
+    /**
+     * @return mixed
+     */
+    public function getImg()
+    {
+        return $this->img;
+    }
 }
