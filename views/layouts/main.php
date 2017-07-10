@@ -20,10 +20,15 @@ AppAsset::register($this);
     <?= Html::csrfMetaTags() ?>
     <title><?= Html::encode($this->title) ?></title>
     <?php $this->head() ?>
+    <meta property="og:url" content="<?=$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI']?>">
     <?php if(isset(Yii::$app->params['og_meta'])) { ?>
-
-
+        <meta property="og:title" content="<?=Yii::$app->params['og_meta']['title']?>">
+        <meta property="og:description" content="<?=strip_tags(Yii::$app->params['og_meta']['description'])?>">
+        <meta property="og:image" content="<?=Yii::$app->params['og_meta']['img']?>">
     <?php } ?>
+    <meta property="og:site_name" content="Чевостик">
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="en_EN">
 </head>
 <body>
 <?php $this->beginBody() ?>
