@@ -21,11 +21,11 @@ AppAsset::register($this);
     <title><?= Html::encode($this->title) ?></title>
     <?php $this->head() ?>
     <meta name="description" content="<?= (isset(Yii::$app->params['description']))?Yii::$app->params['description']:''?>">
-    <meta property="og:url" content="<?=$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI']?>">
+    <meta property="og:url" content="http://<?=$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI']?>">
     <?php if(isset(Yii::$app->params['og_meta'])) { ?>
         <meta property="og:title" content="<?=Yii::$app->params['og_meta']['title']?>">
         <meta property="og:description" content="<?=Yii::$app->params['og_meta']['description']?>">
-        <meta property="og:image" content="<?=Yii::$app->params['og_meta']['img']?>">
+        <meta property="og:image" content="http://<?=Yii::$app->params['og_meta']['img']?>">
     <?php } ?>
     <meta property="og:site_name" content="Чевостик">
     <meta property="og:type" content="website">
