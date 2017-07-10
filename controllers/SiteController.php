@@ -20,9 +20,11 @@ class SiteController extends Controller
         $postManager = new PostManager();
         $posts = $postManager->getPosts();
         $this->view->title = 'Чевостик';
+        Yii::$app->params['description'] = 'Наш сайт — это приключения. Для нас важно не просто давать детям базис академического образования, а предоставлять его в настолько увлекательной форме, чтобы наши уроки становились главными впечатлениями их детства.';
+
         Yii::$app->params['og_meta'] = [
             'title' => 'Чевостик блог',
-            'description' => 'Блог Чевостика, образовательный портал для детей',
+            'description' => 'Наш сайт — это приключения. Для нас важно не просто давать детям базис академического образования, а предоставлять его в настолько увлекательной форме, чтобы наши уроки становились главными впечатлениями их детства.',
             'img' => null
         ];
         return $this->render('index', ['posts' => $posts]);
@@ -42,9 +44,10 @@ class SiteController extends Controller
         Yii::$app->params['post'] = $posts[$id];
         /** @var Post $posts */
         $this->view->title = $posts[$id]->getTitle();
+        Yii::$app->params['description'] = strip_tags($posts[$id]->getExcerpt());
         Yii::$app->params['og_meta'] = [
             'title' => $posts[$id]->getTitle(),
-            'description' => $posts[$id]->getExcerpt(),
+            'description' => strip_tags($posts[$id]->getExcerpt()),
             'img' => $_SERVER['HTTP_HOST'].'/image/post'.$posts[$id]->getId().'/main.png'
         ];
         return $this->render('post', ['post' => $posts[$id]]);
