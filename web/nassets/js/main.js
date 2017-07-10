@@ -53,3 +53,34 @@ ready(
     }
   })
 );
+
+// Vk Share counter
+
+ready (
+  function VkCounter() {
+    var index = "1"; 
+    var link = window.location.href;
+    $("body").append("<script src='https://vk.com/share.php?act=count&index=" + index + "&url=" + link + "'></script>");
+  }
+
+);
+
+var vkCounter = document.querySelector('.vk_counter'); 
+var VK = {};
+VK.Share = {};
+VK.Share.count = function(index, count) {
+    vkCounter.innerHTML = count;
+};
+
+
+// Fb Share counter 
+
+ready (
+    function VkCounter() {
+      var fbCounter = document.querySelector('.fb_counter'); 
+      var link = window.location.href;
+      $.get("https://graph.facebook.com/" + link, {}, function(data) {
+            fbCounter.innerHTML = data.share.share_count;
+      }, 'json');
+    }
+  );
