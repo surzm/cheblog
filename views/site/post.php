@@ -20,7 +20,7 @@
       <article class="blog-article">
 
           <div class="social_share_area">
-            <a target="_blank" href="http://vk.com/share.php?url=<?=$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI']?>&title=<?=$post->getTitle()?>&description=<?=strip_tags($post->getExcerpt())?>&image=<?=$_SERVER['HTTP_HOST'].'/image/post'.$post->getId().'/main.png'?>&noparse=true">
+            <a target="_blank" href="http://vk.com/share.php?url=http://<?=$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI']?>&title=<?=$post->getTitle()?>&description=<?=strip_tags($post->getExcerpt())?>&image=<?=$_SERVER['HTTP_HOST'].'/image/post'.$post->getId().'/main.png'?>&noparse=true">
               <div class="social_btn social_btn--vk">
                   <svg class="ui-Icon-Image social_share--img" width="32" height="30">
                     <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#static--vk_icon"></use>
