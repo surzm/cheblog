@@ -20,6 +20,10 @@ AppAsset::register($this);
     <?= Html::csrfMetaTags() ?>
     <title><?= Html::encode($this->title) ?></title>
     <?php $this->head() ?>
+    <?php if(isset(Yii::$app->params['og_meta'])) { ?>
+
+
+    <?php } ?>
 </head>
 <body>
 <?php $this->beginBody() ?>

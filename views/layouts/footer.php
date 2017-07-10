@@ -24,4 +24,4 @@
         Сайт сделан в
         <a href="http://breadhead.ru" target="_blank" class="link link_color_gray">Breadhead</a>
     </p>
-</footer>
+

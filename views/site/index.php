@@ -25,7 +25,6 @@
                                  height="40" alt="<?= $post->getUserName() ?>">
                             <div class="blog-post__author">
                                 <p class="blog-post__author-name"><?= $post->getUserName() ?></p>
-                                <p class="blog-post__author-position"><?= $post->getUserNiceName() ?></p>
                             </div>
                             <a href="post/<?= $post->getId() ?>">
                                 <button type="button" class="btn btn_type_secondary_white blog-post__btn">Читать

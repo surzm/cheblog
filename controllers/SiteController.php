@@ -3,6 +3,7 @@
 namespace app\controllers;
 
 use app\components\postManager\PostManager;
+use app\models\Post;
 use Yii;
 use yii\web\Controller;
 
@@ -18,6 +19,12 @@ class SiteController extends Controller
     {
         $postManager = new PostManager();
         $posts = $postManager->getPosts();
+        $this->view->title = 'Чевостик';
+        Yii::$app->params['og_meta'] = [
+            'title' => 'Чевостик блог',
+            'description' => 'Блог Чевостика, образовательный портал для детей',
+            'img' => null
+        ];
         return $this->render('index', ['posts' => $posts]);
     }
 
@@ -32,7 +39,15 @@ class SiteController extends Controller
         }
         $postManager = new PostManager();
         $posts = $postManager->getPosts();
-        return $this->render('post', ['post' =>$posts[$id]]);
+        Yii::$app->params['post'] = $posts[$id];
+        /** @var Post $posts */
+        $this->view->title = $posts[$id]->getTitle();
+        Yii::$app->params['og_meta'] = [
+            'title' => $posts[$id]->getTitle(),
+            'description' => $posts[$id]->getExcerpt(),
+            'img' => $_SERVER['HTTP_HOST'].'/image/post'.$posts[$id]->getId().'/main.png'
+        ];
+        return $this->render('post', ['post' => $posts[$id]]);
     }
 
     public function actionReload()
@@ -45,6 +60,6 @@ class SiteController extends Controller
     {
         Yii::$app->layout = false;
         $exep = Yii::$app->errorHandler->exception;
-        return $this->render('404',['exception' => $exep]);
+        return $this->render('404', ['exception' => $exep]);
     }
 }
