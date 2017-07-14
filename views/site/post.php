@@ -25,7 +25,7 @@
                   <p class="social_counter vk_counter"></p>
               </div>
             </a> 
-            <a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=<?=$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI']?>&picture=<?=$_SERVER['HTTP_HOST'].'/image/post'.$post->getId().'/main.png'?>">
+            <a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=<?=$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI']?>&picture=http://<?=$_SERVER['HTTP_HOST'].'/image/post'.$post->getId().'/main.png'?>">
               <div class="social_btn social_btn--fb">
                   <svg class="ui-Icon-Image social_share--img" width="32" height="40">
                     <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#static--fb_icon"></use>
