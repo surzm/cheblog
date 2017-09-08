@@ -89,4 +89,12 @@
         </nav>
 
     </section>
+    <div class="instruction">
+      <div class="video-container">
+        <div class="close-btn"></div>
+        <div class="player">
+          <iframe width=640 height=320 src="https://www.youtube.com/embed/fETQyuSKQJE?autoplay=1" frameborder="0" allowfullscreen></iframe>
+        </div>
+      </div>
+    </div>
 </main>
