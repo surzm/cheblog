@@ -20,7 +20,6 @@ AppAsset::register($this);
     <?= Html::csrfMetaTags() ?>
     <title><?= Html::encode($this->title) ?></title>
     <?php $this->head() ?>
-    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
     <meta name="description" content="<?= (isset(Yii::$app->params['description']))?Yii::$app->params['description']:''?>">
     <meta property="og:url" content="http://<?=$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI']?>">
     <?php if(isset(Yii::$app->params['og_meta'])) { ?>
