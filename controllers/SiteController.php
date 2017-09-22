@@ -19,7 +19,7 @@ class SiteController extends Controller
     {
         $postManager = new PostManager();
         $posts = $postManager->getPosts();
-        $this->view->title = 'Чевостик';
+        $this->view->title = 'Блог Чевостика';
         Yii::$app->params['description'] = 'Полезный блог для родителей. Здесь мы вместе со специалистами поднимаем актуальные вопросы развития для родителей дошкольников и младших школьников и предлагаем свои решения.';
 
         Yii::$app->params['og_meta'] = [
