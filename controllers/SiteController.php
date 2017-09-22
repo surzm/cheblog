@@ -3,6 +3,7 @@
 namespace app\controllers;
 
 use app\components\postManager\PostManager;
+use app\components\service\ImageService;
 use app\models\Post;
 use Yii;
 use yii\web\Controller;
@@ -56,6 +57,8 @@ class SiteController extends Controller
     public function actionReload()
     {
         Yii::$app->cache->flush();
+        ImageService::deleteAllImage(Yii::$app->basePath . '/web/image');
+
         return $this->actionIndex();
     }
 
