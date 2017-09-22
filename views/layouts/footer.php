@@ -7,9 +7,23 @@
  */
 ?>
 
-    <a href="#" class="page-footer__video">
-        <img src="/nassets/img_static/video.png" width="158" height="120" alt="Видео о Чевостике">
-    </a>
+    <div  class="page-footer__video">
+      <img src="/nassets/img_static/video.png" width="158" height="120" alt="Видео о Чевостике">
+      <script>
+        var showVideo = document.querySelector('.page-footer__video');
+        var body = document.querySelector('body');
+        var closeBtn = document.querySelector('.close-btn');
+        var instruction = document.querySelector('.instruction')
+        showVideo.onclick = function () {
+          instruction.style.display = 'block';
+          body.style.overflow = 'hidden';
+        }
+        closeBtn.onclick = function () {
+          instruction.style.display = 'none';
+          body.style.overflow = 'auto';
+        }
+      </script>
+    </div>
     <small class="page-footer__copyright">© Чевостик, 2017</small>
     <h3 class="page-footer__title">Проект детского издательства <a href="http://www.1elena.ru/" target="_blank" class="link link_color_gray">Елена</a></h3>
     <nav class="bottom-nav page-footer__bottom-nav">

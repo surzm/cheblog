@@ -6,19 +6,16 @@
     }
 </style>
   <main class="site-content">
+    <ul class="breadcrumbs">
+      <li class="breadcrumbs__item">
+        <a href="/" class="btn btn_size_l btn_type_secondary_white">
+          <svg xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="9px" height="15px" viewBox="0 0 9 15"><polygon points="7.682,14.318 8.318,13.682 2.137,7.5 8.318,1.318 7.682,0.682 0.863,7.5 "/></svg>
+          Все статьи
+        </a>
+      </li>
+    </ul>
     <div class="wrapper">
-
-      <ul class="breadcrumbs">
-        <li class="breadcrumbs__item">
-          <a href="/" class="btn btn_size_l btn_type_secondary_white">
-            <svg xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="9px" height="15px" viewBox="0 0 9 15"><polygon points="7.682,14.318 8.318,13.682 2.137,7.5 8.318,1.318 7.682,0.682 0.863,7.5 "/></svg>
-            Все статьи
-          </a>
-        </li>
-      </ul>
-
       <article class="blog-article">
-
           <div class="social_share_area">
             <a target="_blank" href="http://vk.com/share.php?url=http://<?=$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI']?>&title=<?=$post->getTitle()?>&description=<?=strip_tags($post->getExcerpt())?>&image=<?=$_SERVER['HTTP_HOST'].'/image/post'.$post->getId().'/main.png'?>&noparse=true">
               <div class="social_btn social_btn--vk">
@@ -37,7 +34,6 @@
               </div>
             </a>
           </div>
-
           <?php if($post->getImg()){?>
       <div class="blog-article__img-wrap">
           <img  src="/image/post<?=$post->getId().'/main.png'?>" alt="<?= /** @var \app\models\Post $post */
