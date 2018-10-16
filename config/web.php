@@ -12,14 +12,14 @@ $config = [
             'cookieValidationKey' => '-54_EHuCJHZLaTiOyy3owc3BqcayyBes',
         ],
         'cache' => [
-            'class' => 'yii\caching\MemCache',
-            'servers' => [
+            'class' => 'yii\caching\FileCache',
+            /* 'servers' => [
                 [
                     'host' => 'localhost',
                     'port' => 11211,
                     'weight' => 60,
                 ],
-            ]
+            ] */
         ],
         'user' => [
             'identityClass' => 'app\models\User',

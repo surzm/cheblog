@@ -32,9 +32,9 @@ AppAsset::register($this);
     <meta property="og:locale" content="en_EN">
 </head>
 <body>
-<div class="portrait">
+<!-- <div class="portrait">
       <img class="app__icon" src="/nassets/img_static/Chevostik_poverni_mobile-01.svg" alt="Поверни телефон или планшет горизонтально">
-</div>
+</div> -->
 <?php $this->beginBody() ?>
 <?= $this->render('header') ?>
 

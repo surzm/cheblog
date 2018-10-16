@@ -1,5 +1,5 @@
 function ready(fn) {
-  if (document.readyState != 'loading'){
+  if (document.readyState != 'loading') {
     fn();
   } else {
     document.addEventListener('DOMContentLoaded', fn);
@@ -7,18 +7,18 @@ function ready(fn) {
 }
 
 ready(
-  (function(){
+  (function () {
     var form = document.querySelector('.js-write-us-form');
-    
+
     if (!form) return;
-    
+
     form.addEventListener("submit", sentFeedbackForm);
-    
+
     function sentFeedbackForm(event) {
       event.preventDefault();
       var data = getFormData(form);
       var messageArea = document.querySelector('.js-feedback-form-message');
-  
+
       axios.post('https://chvsk.dev.ikitlab.co/api/v1/feedback', data).then(function (response) {
         if (response.status >= 200 || response.status < 400) {
           messageArea.classList.add('fadeIn');
@@ -33,17 +33,17 @@ ready(
 );
 
 ready(
-  (function(){
+  (function () {
     var form = document.querySelector('.js-form-subscription');
-  
+
     if (!form) return;
-  
+
     form.addEventListener("submit", subscribeEmail);
-    
+
     function subscribeEmail(event) {
       event.preventDefault();
       var data = getFormData(form);
-  
+
       axios.post('https://chvsk.dev.ikitlab.co/api/v1/mailinglist/subscribe ', data).then(function (response) {
         if (response.status >= 200 || response.status < 400) {
           form.classList.add('email-subscription__filed_state_sent', 'fadeIn');
@@ -56,31 +56,45 @@ ready(
 
 // Vk Share counter
 
-ready (
+ready(
   function VkCounter() {
-    var index = "1"; 
+    var index = "1";
     var link = window.location.href;
     $("body").append("<script src='https://vk.com/share.php?act=count&index=" + index + "&url=" + link + "'></script>");
   }
 
 );
 
-var vkCounter = document.querySelector('.vk_counter'); 
+var vkCounter = document.querySelector('.vk_counter');
 var VK = {};
 VK.Share = {};
-VK.Share.count = function(index, count) {
-    vkCounter.innerHTML = count;
+VK.Share.count = function (index, count) {
+  vkCounter.innerHTML = count;
 };
 
 
 // Fb Share counter 
 
-ready (
-    function VkCounter() {
-      var fbCounter = document.querySelector('.fb_counter'); 
-      var link = window.location.href;
-      $.get("https://graph.facebook.com/" + link, {}, function(data) {
-            fbCounter.innerHTML = data.share.share_count;
-      }, 'json');
-    }
-  );
+ready(
+  function VkCounter() {
+    var fbCounter = document.querySelector('.fb_counter');
+    var link = window.location.href;
+    $.get("https://graph.facebook.com/" + link, {}, function (data) {
+      fbCounter.innerHTML = data.share.share_count;
+    }, 'json');
+  }
+);
+
+ready(
+  function () {
+    var menuButton = document.getElementById('menu-btn');
+    var nav = document.querySelector('.js-page-header-right');
+    var body = document.querySelector('body');
+
+    menuButton.addEventListener('click', function () {
+      menuButton.classList.toggle('is-active');
+      nav.classList.toggle('is-active');
+      body.classList.toggle('scroll-block');
+    });
+  }
+);
